@@ -1,24 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+// import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home'; 
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import General from './components/General';
+import PersonalProfile from './components/PersonalProfile';
+import { useState } from 'react';
+import Logout from './components/Logout';
+import Recipe from './components/Recipe';
+import Diet from './components/Diet';
+import MealPlan from './components/MealPlan';
+import Pricing from './components/Pricing';
+import PremiumSignUP from './components/PremiumSignUP';
+import Tips from './components/Tips';
+import Dashboard from './components/Dashboard';
+import Setting from './components/Setting';
+import PaystackPage from './components/PaystackPage';
 
 function App() {
+  // const [allUsers, setallUsers] = useState([])
+  // const addNewUser = (values) =>{
+  //   let newAllUsers = allUsers;
+  //   let found = newAllUsers.find(val => val.email === values.email);
+  //   if(!found){
+  //     setallUsers
+  //   }
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <Navbar/> */}
+    <Routes>
+      <Route path='/' element = {<Home/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/signin' element={<SignIn/>}/>
+      <Route path='/general1234' element={<General/>}/>
+      <Route path='/pp1111' element={<PersonalProfile/>}/>
+      <Route path='/recipe' element={<Recipe/>}/>
+      <Route path='/diet' element={<Diet/>}/>
+      <Route path='/mealplan' element ={<MealPlan/>}/>
+      <Route path='/pricing' element={<Pricing/>}/>
+      <Route path='/tips' element={<Tips/>}/>
+      <Route path='/premSignUp' element={<PremiumSignUP/>}/>
+      <Route path='/settings' element={<Setting/>}/>
+      <Route path='/logout0000' element={<Logout/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/paymentpage' element={<PaystackPage/>}/>
+    </Routes>
+    </>
   );
 }
 
