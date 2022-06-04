@@ -17,9 +17,10 @@ export default function SignIn() {
     const verifyUser =(vals)=>{
       try{
         dispatch(verify(vals))
-        navigate('/general1234')
+        navigate('/dashboard')
 
       }catch(e){
+        console.log(e)
         seterror(e)
       }
     } 

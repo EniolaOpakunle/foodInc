@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import background from '../images/diet.webp'
 import '../App.css'
 
-export default function 
+export default function Home
 () {
   return (
     <>

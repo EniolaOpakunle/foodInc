@@ -15,9 +15,10 @@ const logout = () =>{
         type: 'LOGOUT'
     }
 }
-const hold = () =>{
+const hold = (values) =>{
     return{
-        type: 'HOLD'
+        type: 'HOLD',
+        payload: values
     }
 }
 export {register, verify, logout, hold }

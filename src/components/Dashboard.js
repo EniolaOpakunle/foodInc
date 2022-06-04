@@ -2,9 +2,14 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import profileImage from '../images/download.png'
 import Weather from './Weather'
+import { useSelector } from 'react-redux'
 
 export default function Dashboard() {
-    
+  let counts = useSelector(state=>state.usersReducer.allUsers)
+  let index = JSON.parse(localStorage.currentUser)
+  console.log(index)
+  let found = counts.find((val, ind) => (ind == index ))
+  console.log(found)
     
   return (
     <div>
@@ -24,27 +29,27 @@ export default function Dashboard() {
                         <h3 className=' text-center my-3'>Profile</h3>
                         <div className='row my-2'>
                             <label htmlFor="" className='col-2 mx-2'>firstname</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.firstname} disabled/>
                         </div>
                         <div className='row my-2'>
                             <label htmlFor="" className='col-2 mx-2'>Lastname</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.lastname} disabled/>
                         </div>
                         <div className='row my-2'>
                             <label htmlFor="" className='col-2 mx-2'>Username</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.username} disabled/>
                         </div>
                         <div className='row my-2'>
                             <label htmlFor="" className='col-2 mx-2'>Email</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.email} disabled/>
                         </div>
                         <div className='row my-2'>
                             <label htmlFor="" className='col-2 mx-2'>Challenge</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.challenge} disabled/>
                         </div>
                         <div className='row'>
                             <label htmlFor="" className='col-2 mx-2'>Password</label>
-                            <input type="text" className='col-8 mx-3' />
+                            <input type="text" className='col-8 mx-3' value={found.password} disabled  />
                         </div>
                     </div>
                     <div className='display-div' id='weatherDisplay-div'>

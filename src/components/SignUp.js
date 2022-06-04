@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 import '../App.css';
 // import { PaystackButton } from 'react-paystack';
 
-export default function () {
+export default function SignUp() {
   const naviagte = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -44,7 +44,8 @@ export default function () {
         }
       }else{
         try {
-          dispatch(register(values));
+          console.log(values)
+          dispatch(hold(values));
           formik.resetForm({values: ""})
           naviagte('/paymentpage')
         } catch (e) {

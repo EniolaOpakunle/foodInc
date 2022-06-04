@@ -5,15 +5,12 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home'; 
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
-import General from './components/General';
-import PersonalProfile from './components/PersonalProfile';
 import { useState } from 'react';
 import Logout from './components/Logout';
 import Recipe from './components/Recipe';
 import Diet from './components/Diet';
 import MealPlan from './components/MealPlan';
 import Pricing from './components/Pricing';
-import PremiumSignUP from './components/PremiumSignUP';
 import Tips from './components/Tips';
 import Dashboard from './components/Dashboard';
 import Setting from './components/Setting';
@@ -35,14 +32,11 @@ function App() {
       <Route path='/' element = {<Home/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/signin' element={<SignIn/>}/>
-      <Route path='/general1234' element={<General/>}/>
-      <Route path='/pp1111' element={<PersonalProfile/>}/>
       <Route path='/recipe' element={<Recipe/>}/>
       <Route path='/diet' element={<Diet/>}/>
       <Route path='/mealplan' element ={<MealPlan/>}/>
       <Route path='/pricing' element={<Pricing/>}/>
       <Route path='/tips' element={<Tips/>}/>
-      <Route path='/premSignUp' element={<PremiumSignUP/>}/>
       <Route path='/settings' element={<Setting/>}/>
       <Route path='/logout0000' element={<Logout/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>

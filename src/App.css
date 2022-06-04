@@ -48,7 +48,7 @@
   background-color: rgba(255, 0, 0, 0.637) !important;
 }
 #dashboard-flex-div1{
-  width: 200px;
+  width: 300px;
   background-color: rgba(255, 0, 0, 0.637);
   height: auto;
 }
@@ -57,4 +57,28 @@
 }
 .display-div{
   width: 550px;
+}
+#recipeNav{
+  background-color: rgba(255, 0, 0, 0.637)  ;
+}
+#searchBackground{
+  background-image: url(./images/home-banner.png); 
+  background-size: cover;
+  /* width: 700px; */
+  height: 450px;
+  position: absolute ;
+}
+#searchH4{
+  margin-top: 70px;
+  color: rgba(255, 0, 0, 0.637);
+}
+#searchInput{
+  height: 35px;
+  margin-top: 10px;
+}
+.searchBtn{
+  height: 35px;
+  background-color: rgba(255, 0, 0, 0.637);
+  border: thin solid rgba(255, 0, 0, 0.637);
+  border-radius: 5px;
 }

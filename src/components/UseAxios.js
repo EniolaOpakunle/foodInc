@@ -3,7 +3,7 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 
 export default function UseAxios(url, lon) {
-  const [onlineData, setonlineData] = useState([]);
+  const [onlineData, setonlineData] = useState("");
     const [isLoading, setisLoading] = useState(true)
     const [error, seterror] = useState(null)
     // const [weather, setweather] = useState([])
@@ -19,9 +19,9 @@ export default function UseAxios(url, lon) {
         setisLoading(false)
         seterror(err.message)
         console.log(err.message)
-    }, [lon])
+    })
    
-})
+}, [lon])
  return {isLoading, error, onlineData};
 
 }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { logout } from '../actions';
 
-export default function 
+export default function Logout
 () {
   const dispatch = useDispatch()
   const navigate = useNavigate();
