@@ -33,10 +33,11 @@ function App() {
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/recipe' element={<Recipe/>}/>
+      <Route path='/recipe/*' element={<Recipe/>}/>
       <Route path='/diet' element={<Diet/>}/>
       <Route path='/mealplan' element ={<MealPlan/>}/>
       <Route path='/pricing' element={<Pricing/>}/>
-      <Route path='/tips' element={<Tips/>}/>
+      {/* <Route path='/tips' element={<Tips/>}/> */}
       <Route path='/settings' element={<Setting/>}/>
       <Route path='/logout0000' element={<Logout/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>

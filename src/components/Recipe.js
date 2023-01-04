@@ -1,9 +1,10 @@
 import React from 'react'
 // import UseAxios from './UseAxios'
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import UseAxios from './UseAxios';
 import background from '../images/diet.webp'
+import Tips from './Tips';
 
 export default function Recipe() {
     const navigate = useNavigate();
@@ -14,13 +15,15 @@ export default function Recipe() {
     const [MealTypes, setMealTypes] = useState('')
     const [info, setinfo] = useState([])
     const [result, setresult] = useState([])
+    const [details, setdetails] = useState([])
+    const [steps, setsteps] = useState([])
     const [index, setindex] = useState('')
-    const number = 10
+    const number = 20
     const instruction = true
     const addRecipeIformation= true;
     const addRecipeNutrition = true;
     const searchRecipe = () =>{
-      console.log(intolerance, MealTypes, Cuisines, diet)
+      // console.log(intolerance, MealTypes, Cuisines, diet)
       fetch(
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=832dbaf2e32f43aca7d47d41cab98a3b&query=${query}&number=10&diet=${diet}&instructionsRequired=${instruction}&addRecipeInformation=${addRecipeIformation}&type=${MealTypes}&intolerances=${intolerance}&cuisine=${Cuisines}&addRecipeInformation=${addRecipeNutrition}&number=${number}`
       ).then((response) =>response.json())
@@ -28,23 +31,37 @@ export default function Recipe() {
             let re = data
             setinfo(re)
             setresult(re.results)
+            for (let index = 0; index < result.length; index++) {
+              let element = result[index].analyzedInstructions;
+              setdetails([...details, element])
+            }
+            console.log(details)
+            // console.log(number)
         }).catch(()=>{
             console.log('error')
         })
     }
     const getFullDetails =(indd) =>{
-      console.log(indd
-        )
+      // console.log(indd)
+      let results = result[indd].analyzedInstructions
+      setdetails(result[indd].analyzedInstructions)
+      // setsteps(results.steps)
+      // console.log(details)
+      setsteps(details[0].steps)
+      navigate('/recipe/fulldetails');
     }
-    console.log(result)
+    // console.log(result)
   return (
     < >
+    {/* <Routes>
+      <Route path='/fulldetails' element={<Tips/>} steps ={steps}/>
+    </Routes> */}
     <div className='position-relative'>
       <nav className="navbar navbar-light" id='recipeNav'>
         <span className="navbar-brand mb-0 h1">FoodInc</span>
       </nav>  
       <div id='searchBackground'>
-        <h4 className='text-center' id='searchH4'>Search for your favourite recipe with ease</h4>
+        <h4 className='text-center' id='searchH4'>Find recipes quickly</h4>
         <p className='justify-content-center my-3 w-75 m-auto' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis placeat consequatur recusandae dignissimos explicabo fuga, repellendus eaque ipsa eligendi accusamus dolore doloribus adipisci neque sapiente iure! Sunt omnis quisquam ad.</p>
         <div className='d-flex justify-content-center'>
           <input 
@@ -54,7 +71,7 @@ export default function Recipe() {
           placeholder='name of recipe'
           style={{width: '700px'}} 
           id='searchInput' />
-          <button className=' mx-2 my-2 searchBtn' onClick={searchRecipe} > Search Recipe</button>
+          <button className='mx-2 my-2 searchBtn' onClick={searchRecipe} > Search Recipe</button>
         </div>
         <div className='justify-content-center d-flex'>
           <label htmlFor="" className='mx-2'>Diet</label>
@@ -63,7 +80,7 @@ export default function Recipe() {
             <option value="Lacto-vegetarian">Lacto-vegetarian</option>
             <option value="ovo-vegetarian">ovo-vegetarian</option>
             <option value="Ketogenic">Ketogenic</option>
-            <option value="Ketogenic">Whole30</option>
+            <option value="whole30">Whole30</option>
             <option value="primal">primal</option>
             <option value="paleo">paleo</option>
             <option value="Pescetarian">Pescetarian</option>
@@ -127,12 +144,13 @@ export default function Recipe() {
             <option value="Shellfish">Shellfish</option>
             <option value="Soy">Soy</option>
             <option value="sulfite">sulfite</option>
-            <option value="Tree nut">Tree nut</option>
+            <option value="Treenut">Tree nut</option>
             <option value="Wheat">Wheat</option>
           </select>
         </div>
       </div>
-     <div className='row position-absolute'>
+     <div className='row position-absolute displayDiv justify-content-center' style={{}}>
+       {/* <h2 className='text-center'>Results</h2> */}
        {result.map((val, ind) =>(
          <div key={ind} className='col-3 card m-1' style={{width: '18rem'}}>
            <img src={val.image} alt="card image cap" style={{width: '16rem'}} className='card-img-top'/>
